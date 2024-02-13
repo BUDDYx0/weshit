@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\libcurl_test.dir\\src\\main.cpp.obj",
+            "outputs": [
+                "C:\\Users\\hydra\\Documents\\Coding\\C++\\libcurl_test\\cmake-build-debug-visual-studio\\vc140.pdb",
+                "CMakeFiles\\libcurl_test.dir\\src\\main.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\libcurl_test.dir\\src\\main.cpp.obj",
+            "outputs": [
+                "CMakeFiles\\libcurl_test.dir\\src\\main.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}

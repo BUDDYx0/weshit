@@ -1,0 +1,11 @@
+# ninja log v5
+5	399	7294814798856218	CMakeFiles/libcurl_test.dir/main.cpp.obj.ddi	e92ae9ecc17141b6
+1281	1802	7294906375397831	libcurl_test.exe	e1c4062bf598a2a4
+370	409	7294906365374014	CMakeFiles/libcurl_test.dir/CXX.dd	27aea359f9d37bfc
+370	409	7294906365374014	C:/Users/hydra/Documents/Coding/C++/libcurl_test/cmake-build-debug-visual-studio/CMakeFiles/libcurl_test.dir/CXXModules.json	27aea359f9d37bfc
+400	439	7294814799312695	CMakeFiles/libcurl_test.dir/main.cpp.obj.modmap	722ff7d3be9e404b
+441	1450	7294814809245059	CMakeFiles/libcurl_test.dir/main.cpp.obj	902c57a33135c9bb
+4	112	7294906960355412	build.ninja	28e4067679011344
+4	369	7294906364919660	CMakeFiles/libcurl_test.dir/src/main.cpp.obj.ddi	be55ae5539a652d4
+370	409	7294906365374014	CMakeFiles/libcurl_test.dir/src/main.cpp.obj.modmap	27aea359f9d37bfc
+411	1281	7294906374078856	CMakeFiles/libcurl_test.dir/src/main.cpp.obj	33909a0ac6635725
