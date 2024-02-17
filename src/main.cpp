@@ -29,7 +29,6 @@ std::string generateUrlSlug(const int len) {
     return tmp_s;
 }
 
-// Function to perform CURL request and handle response
 void performCurlRequest(const std::string& urlPrefix, std::ofstream& outFile) {
     CURL *curl = curl_easy_init();
     if (!curl) {
@@ -41,7 +40,6 @@ void performCurlRequest(const std::string& urlPrefix, std::ofstream& outFile) {
         std::string url;
         {
             std::unique_lock<std::mutex> lock(mtx);
-            // Wait until there is a task in the queue or the stop flag is set
             cv.wait(lock, [&] { return !taskQueue.empty() || stopFlag; });
 
             if (stopFlag)
@@ -71,7 +69,6 @@ void performCurlRequest(const std::string& urlPrefix, std::ofstream& outFile) {
                     res = curl_easy_getinfo(curl, CURLINFO_REDIRECT_URL, &location);
                     if ((res == CURLE_OK) && location) {
                         if (strcmp(location, "https://www.wetransfer.com/redirect/error") != 0) {
-                            std::lock_guard<std::mutex> lock(mtx); // Lock the mutex to protect shared resources
                             std::cout << "WORKING LINK FOUND: " << location << '\n';
                             outFile << location << std::endl;
                         }
@@ -88,15 +85,24 @@ void performCurlRequest(const std::string& urlPrefix, std::ofstream& outFile) {
 }
 
 int main() {
-    std::cout << "Program running. Don't worry, I will notify you when I found something. :)" << '\n';
-
     std::string urlPrefix = "https://we.tl/t-";
     std::ofstream outFile("redirected_urls.txt", std::ios::app);
 
+    int userThreads = 0;
+    int numThreads = 5;
+
     // Number of threads you want to create
-    constexpr int numThreads = 5;
     std::vector<std::thread> threads;
 
+    std::cout << "Enter amount of threads you want to use (Default: 5): ";
+    std::cin >> userThreads;
+
+    if (userThreads == 0)
+        userThreads = 5;
+    numThreads = userThreads;
+
+    std::cout << "Program running. Don't worry, I will notify you when I found something. :)" << '\n';
+    std::cout << "Amount of threads used: " << numThreads << '\n';
     // Start threads
     for (int i = 0; i < numThreads; ++i) {
         threads.emplace_back(performCurlRequest, std::ref(urlPrefix), std::ref(outFile));
